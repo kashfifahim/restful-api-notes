@@ -1,0 +1,149 @@
+node.js is a popular back-end javascript runtime used to create web applications 
+
+front-end consists of the information sent to a client so that a user can see and interact with a website 
+a web server is a process running on a computer that listens for incoming requests for information over the internet and sends back responses
+every website has at least one web server 
+
+the specific format of a request and the resulting response is called the protocol 
+
+application server is the collection of programming logic required to deliver dynamic content to a client, manage security, process payments, and myriad other tasks
+the back-ends of modern web applications include some sort of database 
+databases are collections of information 
+
+databases can be divided into two types: relational databases and non-relational databases(NoSQL)
+relational databases store information in tables with columns and rows 
+non-relational databases might use other systems sych as key-value pairs or a document storage model 
+
+relational databases: MySQL and PostgreSQL
+non-relation database: MongoDB and Redis 
+
+much of what the back-end entails is reading, updating, or deleting information stored in a database 
+in order to have a consistent way of interacting with data a back-end will often include a web API 
+a web API is a collection of predefined ways of, or rules for, interacting with a web applicaiton's data, often through an HTTP request-response cycle 
+unlike the http requests a client makes this type of request indicates how it would like to interact with a web application's data--create new data, read existing data, update existing data, or delete existing data--and it recieves some data back as a response
+
+when a user presses the button to submit an order that will trigger a request to send them to a different view of the website--order confirmation page
+an additiona request will be triggered from the front-end to the web API so that the database can be updated with the information from the order 
+
+some web apis are open to the public 
+others are only used by the web application internally 
+
+authentication is the process of validating the identity of a user 
+authorization controls which users have access to which resources and actions 
+
+when building a robust web application back-end we need to incorporate both authentication and authorization into our server-side logic 
+
+most developers make use of frameworks to create a robust back-end 
+frameworks are collections of tools that shape the organization of your back-end and provide efficient ways of accomplishing otherwise difficult tasks
+
+laravel framework uses php 
+express.js framework uses js 
+ruby on rails uses ruby 
+spring uses java 
+jsf uses java 
+flask uses python 
+django uses python 
+asp.net uses c# 
+
+the stack is the collection fo technologies used to create the front-end and back-end of a web application 
+
+a webserver is a process running on a computer somewhere that listens for incoming requests for infromation over the internet and sends back responses 
+storing, accessing, and manipulating data is a large part of a web application's back-end 
+data is stored in databases which can be relational databases or NoSQL databases 
+the server-side of a web application is called the application server 
+the application server handles important tasks such as authorization and authentication 
+the back-end of web application often has a web API which is a way of interacting with an appliation's data through HTTP requests and responses 
+
+arrow expressions has allowed developers to omit parts of the function that they don't need 
+when using an arrow expression we do not use the function declaration 
+the define an arrow expression you simply use: () => {}
+you can pass arguments to an arrow expression between the parenthesis 
+
+a Promise is a js object that represents the eventual outcome of an asynchronous operation 
+a promise has three different outcomes: pending (the result is undefined and the expression is waiting for a result), 
+fulfilled (the promise has been completed successfully and returned a value), and
+rejected (the promise did not successfully complete, the result is an error object).
+
+const testLuck = new Promise((resolve, reject) => {
+    if (Math.random() < 0.5) {
+        resolve('Lucky winner!')
+    } else {
+        reject(new Error('Unlucky'))
+    }
+});
+
+testLuck.then(message => {
+    console.log(message)
+}).catch(error => {
+    console.error(error)
+});
+
+the async...await syntax allows developers to easily implement Promise-based code 
+
+the keyword async used in conjunction with a function declaration creates an async function that returns a Promise 
+async function allow us to use the keyword await to block the event loop until a given Promise resolves or rejets 
+the await keyword also allows us to assign the resolved value of a Promise to a variable 
+
+const newPromise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("All done!"), 5000);
+});
+
+const asyncFunction = async () => {
+    const finalResult = await newPromise;
+    console.log(finalResult);
+}
+
+asyncFunction();
+
+a. create a new promise which passes a function that is executed after 5 seconds 
+b. we await the Promise to resolve and save the value returned to finalResult 
+c. the output of the Promise is logged to the console 
+
+setInterval() function executes a code block at a specified interval, in milliseconds
+- requires two arguments: the name of the function--the code block that will be executed; the number of milliseconds (how often the function will be executed)
+the setInterval() function will continue to execute until the clearInterval() function is called or the node process is exited 
+
+const showAlert= () => {
+    setInterval( () => {
+        alert('I show every 5 seconds!')
+    }, 5000);
+};
+
+showAlert();
+
+setTimeout() function executes a code block after a specified amount of time (in milliseconds) and is only executed once 
+setTimeout() function accepts the same arguments as the setInterval() function 
+clearTimeout() function will prevent the funciton specified from being executed 
+
+const showTimeout = () => {
+    setTimeout(() => {
+        alert('I only show once after 5 seconds');
+    }, 5000);
+}
+
+showTimeout();
+
+JSON is a language-independent standard format for storing and exchanging data 
+JSON has become the standard for storing and sending data between all programming languages 
+
+json is used to facilitate data transfer in web applications between a client and a server 
+
+When you fill out a web form the form data is converted from html to js object to JSON object and sent to a remote web server for processing 
+
+{ 
+    "student": {
+        "name": "Rumaisa Mahoney",
+        "age": 30,
+        "fullTime": true, 
+        "langauges": ["JavaScript", "HTML", "CSS"],
+        "GPA": 3.9,
+        "favoriteSubject": null
+    }
+}
+
+{ ... } curly braces hold objects 
+[ ... ] square brackets hold arrays 
+data is stored in name-value pairs separated by a colon, :
+every name-value pair is separated from another pair by a comma
+trailing commas are forbidden 
+JSON property names must be in double-quotes
